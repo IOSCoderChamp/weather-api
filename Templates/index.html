@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>Weather API</h1>
+        <table>
+            <thead>
+                <th>City</th>
+                <th>Country</th>
+                <th>Temp</th>
+            </thead>
+            <tbody>
+                {% for temp in temps %}
+                    <tr>
+                        <td>{{ temp.get('name', 'name not found') }}</td>
+                        <td>{{ temp.get('sys', {}).get('country', 'no country') }}</td>
+                        <td>{{ temp.get('main', {}).get('temp') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
