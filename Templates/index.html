@@ -3,6 +3,10 @@
     <head></head>
     <body>
         <h1>Weather API</h1>
+        <div>
+            <input id="input" name="search" placeholder="search for a city..." />
+            <button id="Input-Button">search</button>
+        </div>
         <table>
             <thead>
                 <th>City</th>
@@ -19,5 +23,20 @@
                 {% endfor %}
             </tbody>
         </table>
+        <div id="output"> </div>
+
+        <script>
+            const input = document.getElementById("input")
+            const inputButton = document.getElementById("Input-Button")
+            const output = document.getElementById("output")
+
+            inputButton.onclick = async () => {
+                const city = input.value;
+                const response = await fetch("/forecast?city=" + city + "&state=" + "state");
+                const data = await response.json();
+                
+                output.innerHTML = "<h1>" + data.name + ":" + data.temp + "</h1>"
+            }
+        </script>
     </body>
 </html>

@@ -24,7 +24,7 @@ def forecast():
     city = request.args.get("city")
     data = get_weather(city)
     return {
-        "city": data["main"]["name"],
+        "city": data["name"],
         "temp": data["main"]["temp"],
         #"data": data
     }
