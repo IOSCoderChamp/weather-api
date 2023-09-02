@@ -35,7 +35,7 @@
                 const response = await fetch("/forecast?city=" + city + "&state=" + "state");
                 const data = await response.json();
                 
-                output.innerHTML = "<h1>" + data.name + ":" + data.temp + "</h1>"
+                output.innerHTML = "<h1>" + data.city + ":" + data.temp + "</h1>"
             }
         </script>
     </body>
